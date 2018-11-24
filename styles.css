@@ -6,40 +6,66 @@
 body {
     margin:0;
     font-family: 'Expletus Sans';
-    font-size: 22px;
-    color: #000000;
-    line-height: 1.6; 
-    background-color: powderblue;
+    background: rgba(0,0,0,0.9);
 }
 
-#showcase{
-    background-image: url('../showcase.jpg');
+#showcase::after{
+    content:'';
+    height: 100vh;
+    width: 100%;
+    background-image: url(showcase.jpg);
     background-size: cover;
     background-position: center;
-    height:100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-#showcase h1{
-     font-size: 50px; 
-}
-
-#showcase p{
-    font-size: 20px;
-}
-
-#showcase .button{
-     font-size: 18px;
-     text-decoration: none;
-     color: #FFFFFF;
-     border: #FFFFFF 1px solid;
-     padding: 10px 20px;
-     border-radius: 10px;
-     margin-top: 20px;
+    display: block;
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    transition: all 1000ms;
 
 }
  
+#showcase:hover::after{
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+
+}
+
+.content{
+    position: absolute;
+    z-index: 1;
+    top: 10%;
+    left: 50%;
+    margin-top: 30px;
+    margin-left: -145px;
+    width: 300px;
+    height: 350px;
+    text-align: center;
+    transition: all 1000ms;
+}
+
+.content .title{
+    font-size: 2.2rem;
+    color: black;
+    margin-top: 1rem;
+}
+
+.content .text{
+    font-size: 1rem;
+    color: gray;
+    line-height: 1.7;
+    margin-top: 1rem;
+
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    color: white;
+
+}
+
+.grid-item {
+    background-color: black;
+    padding: 20px;
+    font-size: 15px;
+    text-align: center;
+  }
